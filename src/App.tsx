@@ -1,9 +1,12 @@
-import Form from './components/Form'
+// import Form from './components/Form'
+
+import AdvancedForm from "./components/AdvancedForm";
 
 export default function App() {
   return (
     <div>
-       <Form />
+       {/* <Form /> */}
+       <AdvancedForm />
     </div>
   )
 }
