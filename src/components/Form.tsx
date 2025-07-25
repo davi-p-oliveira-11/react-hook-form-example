@@ -66,7 +66,9 @@ export default function Form() {
           <div style={{ color: "red" }}>{errors.password.message}</div>
          )}
 
-         <button type="submit">Submit</button>
+         <button disabled={isSubmitting} type="submit">
+            {isSubmitting ? "Loading..." : "Submit"}
+         </button>
 
        </div>
       </div>
