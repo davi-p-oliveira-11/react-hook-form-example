@@ -50,6 +50,22 @@ export default function AdvancedForm() {
 
            {errors.lastName && <p>{errors.lastName.message}</p>}
          </div>
+
+         <div>
+            <label htmlFor="email">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              {...register("email", {
+               required: "Email Address is required",
+               pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: 'Invalid email address'
+               }
+            })} />
+
+            {errors.email && <p>{errors.email.message}</p>}
+         </div>
       </form>
 
     </div>
