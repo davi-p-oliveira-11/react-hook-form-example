@@ -1,4 +1,4 @@
-import {useForm, SubmitHandler} from "react-hook-form"
+import {useForm, type SubmitHandler} from "react-hook-form"
 import "../style.css"
 
 interface FormData {
@@ -12,17 +12,18 @@ interface FormData {
   completeLocation: string;
 }
 
-const onSubmit: SubmitHandler<FormData> = (data) => {
-   console.log(data);
-}
-
 
 export default function AdvancedForm() {
+ 
   const {
    register,
    handleSubmit,
    formState: {errors},
   } = useForm<FormData>();
+
+  const onSubmit: SubmitHandler<FormData> = (data) => {
+    console.log(data);
+  }
 
   return (
     <div className="form-container">
@@ -77,7 +78,47 @@ export default function AdvancedForm() {
             {errors.city && <p>{errors.city.message}</p>}
          </div>
 
-         
+         <div>
+            <label htmlFor="state">State</label>
+            <input 
+              type="text" 
+              id="state"
+              {...register('state', {required: 'State is required'})}  
+            />
+            {errors.state && <p>{errors.state.message}</p>}
+         </div>
+
+         <div>
+            <label htmlFor="zip">ZIP</label>
+            <input 
+              type="text" 
+              id="zip"
+              {...register('zip', {required: 'ZIP is required'})}  
+            />
+            {errors.zip && <p>{errors.zip.message}</p>}
+         </div>
+
+         <div>
+            <label htmlFor="country">Country</label>
+            <input 
+              type="text" 
+              id="country"
+              {...register('country', {required: 'Country is required'})}  
+            />
+            {errors.country && <p>{errors.country.message}</p>}
+         </div>
+
+         <div>
+            <label htmlFor="completeLocation">Complete Location</label>
+            <input 
+              type="text" 
+              id="completeLocation"
+              {...register('completeLocation', {required: 'Complete Location is required'})}  
+             />
+            {errors.completeLocation && <p>{errors.completeLocation.message}</p>}
+         </div>
+
+         <button type="submit">Submit</button>
       </form>
 
     </div>
