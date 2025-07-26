@@ -60,12 +60,24 @@ export default function AdvancedForm() {
                required: "Email Address is required",
                pattern: {
                   value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: 'Invalid email address'
+                  message: "Invalid email address"
                }
             })} />
 
             {errors.email && <p>{errors.email.message}</p>}
          </div>
+
+         <div>
+            <label htmlFor="city">City</label>
+            <input 
+              type="text" 
+              id="city" 
+              {...register("city", {required: "City is required"})}
+              />
+            {errors.city && <p>{errors.city.message}</p>}
+         </div>
+
+         
       </form>
 
     </div>
